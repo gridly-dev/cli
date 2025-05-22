@@ -24,7 +24,7 @@ interface ManifestEntry {
 }
 
 program
-  .name("21st-dev-cli")
+  .name("gridly-dev-cli")
   .description("Install MCP configuration for various AI clients")
   .version("1.0.0");
 
@@ -35,7 +35,7 @@ program
     "<client>",
     `The client to install for (${VALID_CLIENTS.join(", ")})`
   )
-  .option("--api-key <key>", "API key for 21st.dev services")
+  .option("--api-key <key>", "API key for gridly.dev services")
   .action(async (client: string, options: { apiKey?: string }) => {
     if (!VALID_CLIENTS.includes(client as any)) {
       console.error(
@@ -159,9 +159,8 @@ program
         console.log(
           chalk.blue(`Running shadcn add for "${componentIdentifier}"...`)
         );
-        let shadcnCommand = `npx ${
-          !options.install ? "-y --no-install" : "-y"
-        } shadcn add ${componentIdentifier}`;
+        let shadcnCommand = `npx ${!options.install ? "-y --no-install" : "-y"
+          } shadcn add ${componentIdentifier}`;
 
         execSync(shadcnCommand, {
           stdio: "inherit",
@@ -191,8 +190,7 @@ program
           } catch (error) {
             console.warn(
               chalk.yellow(
-                `Warning: Could not read/parse ${MANIFEST_FILENAME}. Initializing. Error: ${
-                  error instanceof Error ? error.message : String(error)
+                `Warning: Could not read/parse ${MANIFEST_FILENAME}. Initializing. Error: ${error instanceof Error ? error.message : String(error)
                 }`
               )
             );
@@ -226,8 +224,7 @@ program
         // This catch block now primarily handles errors from execSync or other unexpected errors
         console.error(
           chalk.red(
-            `Failed to process component "${componentIdentifier}". Error: ${
-              error instanceof Error ? error.message : "Unknown error"
+            `Failed to process component "${componentIdentifier}". Error: ${error instanceof Error ? error.message : "Unknown error"
             }`
           )
         );

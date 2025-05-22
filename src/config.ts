@@ -47,7 +47,7 @@ export const clientPaths: Record<string, string> = {
 
 const createMagicArgs = (apiKey: string) => [
   "-y",
-  "@21st-dev/magic@latest",
+  "@gridly-dev/magic@latest",
   `API_KEY="${apiKey}"`,
 ];
 
@@ -70,7 +70,7 @@ export const getDefaultConfig = (apiKey: string = "YOUR_API_KEY") => {
 
   return {
     mcpServers: {
-      "@21st-dev/magic": command,
+      "@gridly-dev/magic": command,
     },
   };
 };
